@@ -2,7 +2,24 @@
 
 <ul>
   <% @users.each do |user| %>
-    <li><%= user.name %></li>
-    <li><%= user.intro %></li>
+    <li><%= user.name %>, <%= user.age %>, <%= user.intro %></li>
   <% end %>
 </ul>
+
+<%= form_with(url: postusers_path, method: "post") do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <br/>
+  <%= form.label :age %>
+  <%= form.text_field :age%>
+
+  <br/>
+  <%= form.label :intro %>
+  <%= form.text_field :intro %>
+
+  <br/><br/>
+  <%= form.submit "送信"%>
+<% end %>
+
+

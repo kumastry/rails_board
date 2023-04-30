@@ -6,7 +6,7 @@
   <% end %>
 </ul>
 
-<%= form_with(url: postusers_path, method: "post") do |form| %>
+<%= form_with(url: postusers_path, method: "post", model: User.new)  do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
 

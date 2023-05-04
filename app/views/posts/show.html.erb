@@ -1,0 +1,20 @@
+<h1>POSTS</h1>
+
+<div>
+     <% @posts.each do |post| %>
+        <div><%= post.content %></div>
+     <% end %>
+</div>
+
+
+<%= form_with model: Post.new do |form| %>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id %>
+
+  <br/>
+  <%= form.label :content %>
+  <%= form.text_area :content%>
+
+  <br/><br/>
+  <%= form.submit "送信"%>
+<% end %>

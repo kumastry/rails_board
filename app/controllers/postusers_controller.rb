@@ -1,3 +1,5 @@
+#usersをdbへインサートするためのpost処理コントローラ
+
 class PostusersController < ApplicationController
   def create
     @user = User.new(user_params)

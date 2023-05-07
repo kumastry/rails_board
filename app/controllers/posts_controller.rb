@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   def show
-    @posts = Post.all
+    @posts = Post.all.includes(:user)
   end
 
   def create
-    @posts = Post.new(post_params)
-    puts @posts
-    if @posts.save
+    @post = Post.new(post_params)
+
+    if @post.save
       redirect_to '/posts/show'
     else
       render :new
@@ -14,8 +14,8 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:user_id, :content)
   end
-
 end

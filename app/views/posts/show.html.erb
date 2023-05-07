@@ -2,12 +2,21 @@
 
 <div>
      <% @posts.each do |post| %>
-        <div><%= post.content %></div>
+        <div>
+          <%= post.id%>.
+          <%= post.user.name %>
+          <br />
+          <br />
+          <%= post.content %>
+          <br />
+          ================================================
+        </div>
      <% end %>
 </div>
 
 
-<%= form_with model: Post.new do |form| %>
+<%= form_with(model:Post.new, local:true) do |form| %>
+
   <%= form.label :user_id %>
   <%= form.text_field :user_id %>
 

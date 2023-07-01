@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def show
     @posts = Post.all.includes(:user)
   end

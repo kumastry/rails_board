@@ -15,7 +15,10 @@
 </div>
 
 
-<%= form_with(model:Post.new, local:true) do |form| %>
+<%= form_with model:Post.new do |form| %>
+  <% if Post.new.errors.any? %>
+    errors
+  <% end %>
 
   <%= form.label :user_id %>
   <%= form.text_field :user_id %>
